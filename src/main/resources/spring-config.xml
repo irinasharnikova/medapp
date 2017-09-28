@@ -1,0 +1,42 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <context:annotation-config/>
+
+    <bean id="patientDao" class="datamodel.dao.GenericDaoImpl">
+        <constructor-arg value="datamodel.entity.Patient"/>
+        <property name="sessionFactory" ref="sessionFactory"/>
+     </bean>
+
+    <bean id="visitDao" class="datamodel.dao.GenericDaoImpl">
+        <constructor-arg value="datamodel.entity.Visit"/>
+        <property name="sessionFactory">
+            <ref bean="sessionFactory"/>
+        </property>
+    </bean>
+
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="url" value="jdbc:postgresql://localhost:5432/medapp"/>
+        <property name="driverClassName" value="org.postgresql.Driver"/>
+        <property name="username" value="postgres"/>
+        <property name="password" value="admin"/>
+    </bean>
+
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="packagesToScan" value="datamodel.entity"/>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQL94Dialect</prop>
+                <prop key="hibernate.current_session_context_class">thread</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+            </props>
+        </property>
+    </bean>
+
+</beans>
