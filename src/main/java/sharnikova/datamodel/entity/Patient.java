@@ -1,4 +1,4 @@
-package datamodel.entity;
+package sharnikova.datamodel.entity;
 
 import lombok.Data;
 

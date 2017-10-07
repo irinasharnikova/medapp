@@ -1,6 +1,6 @@
-package service;
+package sharnikova.service;
 
-import datamodel.entity.Visit;
+import sharnikova.datamodel.entity.Visit;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

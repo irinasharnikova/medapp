@@ -1,6 +1,6 @@
-package service;
+package sharnikova.service;
 
-import datamodel.entity.Doctor;
+import sharnikova.datamodel.entity.Doctor;
 
 import java.util.List;
 

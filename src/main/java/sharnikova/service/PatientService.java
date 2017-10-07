@@ -1,6 +1,6 @@
-package service;
+package sharnikova.service;
 
-import datamodel.entity.Patient;
+import sharnikova.datamodel.entity.Patient;
 
 import java.util.List;
 
@@ -17,7 +17,7 @@ public interface PatientService {
 
     void deletePatient( Long id );
 
-    void updatePersonalData( Patient patient );
+    void updatePatient(Patient patient );
 
     List<Patient> getPatients();
 

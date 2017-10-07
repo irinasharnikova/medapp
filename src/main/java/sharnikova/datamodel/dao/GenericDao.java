@@ -1,4 +1,4 @@
-package datamodel.dao;
+package sharnikova.datamodel.dao;
 
 import java.io.Serializable;
 import java.util.List;
